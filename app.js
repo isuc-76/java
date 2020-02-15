@@ -1,8 +1,10 @@
-var i;
-var num = 0;
 
-for(i = 1; i < 11; i++){
-	num = num + i;
+// function 関数名(引数){
+   // 処理
+// 　return 戻り値;
+ // }
+function addString(strA){
+	var addStr = "Hello" + strA;
+	return addStr;
 }
 
-alert ('1から10まで足し算した結果は' + num + 'です');
