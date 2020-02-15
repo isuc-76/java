@@ -1,14 +1,27 @@
 // じゃんけんの手を入力してもらうプロンプト欄を生成
 var user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
 
+// while()の条件式で、「"グー"以外且つ、チョキ"以外且つ、"パー"以外且つ、キャンセルボタン以外だったら」
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)){
+	alert('グー・チョキ・パーのいずれかを入力してください');
+	user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
 // じゃんけんの手をランダムに作成する関数を呼び出す
 var js_hand = getJShand();
 
 // ユーザの手とJavaScriptのじゃんけんの手を比べる関数を呼び出し、結果をjudgeに入れる
-var judge = winLose(user_hand, js_hand)
+var judge = winLose(user_hand, js_hand);
 
 // 結果を表示する
+// 「キャンセルじゃなかったら（user_hand != null）」じゃんけんの結果を出し、
+if (user_hand != null){
 alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+}
+// elseで「キャンセルだったら」”またチャレンジしてね”という文言が出せる処理
+else{
+	alert("またチャレンジしてね")
+}
+
 
 
 // ランダムでじゃんけんの手を作成する関数
@@ -75,3 +88,5 @@ function winLose(user,js){
 
 	return winLoseStr;
 }
+
+
